@@ -1,1 +1,283 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grimorio - Donde la Cerveza se Convierte en Hechicería</title>
+    <!-- Carga de Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Fuente Inter (predeterminada en Tailwind, pero se puede customizar) */
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Inter:wght@300;500;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Estilos personalizados para el tema oscuro y mágico */
+        .cinzel-font {
+            font-family: 'Cinzel', serif;
+        }
+
+        .shadow-amber-glow {
+            box-shadow: 0 0 15px rgba(251, 191, 36, 0.7); /* Sombra de brillo ámbar */
+        }
+        
+        .bg-mystic-dark {
+            background-color: #1a1a2e; /* Azul/Púrpura muy oscuro */
+        }
+
+        .beer-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .beer-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(251, 191, 36, 0.2);
+        }
+
+        /* Estilo para el placeholder de imagen */
+        .beer-image {
+            aspect-ratio: 1 / 1; /* Hace la imagen cuadrada */
+            object-fit: cover;
+            width: 100%;
+            height: auto;
+        }
+
+        /* Efecto de fondo sutil para la sección Hero */
+        #hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), 
+                              url('https://placehold.co/1920x1080/000/FFF?text=Fondo+M%C3%ADstico');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-mystic-dark text-gray-200">
+
+    <!-- Sección de Cabecera y Navegación -->
+    <header class="sticky top-0 z-50 bg-mystic-dark bg-opacity-95 backdrop-blur-sm shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-3xl font-bold text-amber-300 cinzel-font">GRIMORIO</h1>
+            <nav class="hidden md:flex space-x-8 text-lg font-medium">
+                <a href="#manifiesto" class="hover:text-amber-300 transition duration-300">Manifiesto</a>
+                <a href="#elixires" class="hover:text-amber-300 transition duration-300">Elixires</a>
+                <a href="#contacto" class="hover:text-amber-300 transition duration-300">Contáctanos</a>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden focus:outline-none">
+                <svg class="w-6 h-6 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </div>
+    </header>
+
+    <!-- Menú Móvil (Oculto por defecto) -->
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-mystic-dark z-40 flex flex-col items-center justify-center space-y-8 text-2xl">
+        <button id="close-menu-button" class="absolute top-6 right-6 focus:outline-none">
+            <svg class="w-8 h-8 text-amber-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+        <a href="#manifiesto" class="hover:text-amber-300 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Manifiesto</a>
+        <a href="#elixires" class="hover:text-amber-300 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Elixires</a>
+        <a href="#contacto" class="hover:text-amber-300 transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contáctanos</a>
+    </div>
+
+    <!-- 1. Sección Héroe (Hero) - La Invocación -->
+    <section id="hero-section" class="relative flex items-center justify-center h-screen text-center">
+        <div class="bg-black bg-opacity-30 p-10 md:p-16 rounded-xl max-w-4xl mx-auto shadow-2xl shadow-amber-900/50">
+            <h2 class="text-6xl md:text-8xl font-bold cinzel-font text-amber-300 mb-4 tracking-wider animate-pulse">GRIMORIO</h2>
+            <p class="text-xl md:text-3xl text-gray-300 mb-10 italic">"Donde la cerveza se convierte en hechicería."</p>
+            <a href="#elixires" class="inline-block py-3 px-10 text-xl font-semibold bg-amber-500 text-mystic-dark rounded-full hover:bg-amber-400 transition duration-300 shadow-amber-glow focus:outline-none focus:ring-4 focus:ring-amber-500 focus:ring-opacity-50">
+                ¡Despierta tu Magia!
+            </a>
+        </div>
+    </section>
+
+    <!-- 2. Sección Manifiesto - El Arte de la Alquimia -->
+    <section id="manifiesto" class="py-20 md:py-32 container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h3 class="text-4xl md:text-5xl font-bold cinzel-font text-amber-300 mb-4">El Arte de la Alquimia Cervecera</h3>
+            <p class="text-lg text-gray-400 max-w-3xl mx-auto">No fermentamos, **invocamos**. Cada lote es un conjuro preciso, usando ingredientes ancestrales y rituales modernos para crear elixires que trascienden el sabor.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-10 text-center">
+            <!-- Pilar 1: Ingredientes Ancestrales -->
+            <div class="p-6 rounded-lg bg-gray-800/50 border border-amber-800 beer-card">
+                <span class="text-5xl text-amber-300 mb-4 block">🔮</span>
+                <h4 class="text-2xl font-semibold cinzel-font mb-3">Pócimas Puras</h4>
+                <p class="text-gray-300">Seleccionamos lúpulos, maltas y levaduras como si fueran componentes mágicos, buscando la energía más alta para nuestras creaciones.</p>
+            </div>
+            <!-- Pilar 2: El Ritual de la Cerveza -->
+            <div class="p-6 rounded-lg bg-gray-800/50 border border-amber-800 beer-card">
+                <span class="text-5xl text-amber-300 mb-4 block">🔥</span>
+                <h4 class="text-2xl font-semibold cinzel-font mb-3">Fuego y Fermentación</h4>
+                <p class="text-gray-300">Nuestros maestros cerveceros son alquimistas, vigilando la transformación con paciencia y precisión, asegurando el balance perfecto.</p>
+            </div>
+            <!-- Pilar 3: La Experiencia Mágica -->
+            <div class="p-6 rounded-lg bg-gray-800/50 border border-amber-800 beer-card">
+                <span class="text-5xl text-amber-300 mb-4 block">✨</span>
+                <h4 class="text-2xl font-semibold cinzel-font mb-3">El Despertar</h4>
+                <p class="text-gray-300">Beber Grimorio es un acto de magia. Cada sorbo es un portal a una nueva experiencia sensorial, cargada de carácter y misterio.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Sección Elixires - Nuestros Conjuros Principales -->
+    <section id="elixires" class="py-20 md:py-32 bg-gray-900">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h3 class="text-4xl md:text-5xl font-bold cinzel-font text-amber-300 mb-4">El Catálogo de Elixires</h3>
+                <p class="text-lg text-gray-400 max-w-4xl mx-auto">Descubre los tres pilares de nuestra magia. Cada cerveza es un encantamiento único, listo para ser liberado.</p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-12">
+                
+                <!-- Cerveza 1: Elixir del Viento (IPA) -->
+                <div class="bg-mystic-dark p-6 rounded-xl border-t-4 border-amber-500 beer-card">
+                    <!-- Imagen/Placeholder 1 (IPA) -->
+                    <img src="https://placehold.co/400x400/f59e0b/1a1a2e?text=Elixir+Viento" 
+                         alt="Etiqueta Elixir del Viento (IPA)" 
+                         class="beer-image rounded-lg mb-6 shadow-md shadow-amber-500/50">
+
+                    <div class="flex justify-start items-center mb-4">
+                        <span class="text-4xl text-amber-300 mr-3">🌬️</span>
+                        <h4 class="text-3xl font-bold cinzel-font text-white">Elixir del Viento</h4>
+                    </div>
+                    <p class="text-base text-amber-300 mb-4 italic">IPA de Lúpulo - 6.5% ABV</p>
+                    <p class="text-gray-300 mb-6">Cosechado bajo la luna creciente. Un torbellino **cítrico** y **resinoso** que despierta los sentidos y eleva el espíritu. Ligera en cuerpo, potente en aroma, pura magia volátil.</p>
+                    <div class="text-left">
+                        <span class="inline-block bg-amber-500 text-mystic-dark text-sm font-semibold px-4 py-1 rounded-full">Amargor: Nivel Alto</span>
+                    </div>
+                </div>
+
+                <!-- Cerveza 2: Néctar del Abismo (Stout) -->
+                <div class="bg-mystic-dark p-6 rounded-xl border-t-4 border-yellow-700 beer-card">
+                     <!-- Imagen/Placeholder 2 (Stout) -->
+                    <img src="https://placehold.co/400x400/713f12/1a1a2e?text=N%C3%A9ctar+Abismo" 
+                         alt="Etiqueta Néctar del Abismo (Stout)" 
+                         class="beer-image rounded-lg mb-6 shadow-md shadow-yellow-700/50">
+
+                    <div class="flex justify-start items-center mb-4">
+                        <span class="text-4xl text-yellow-700 mr-3">🌑</span>
+                        <h4 class="text-3xl font-bold cinzel-font text-white">Néctar del Abismo</h4>
+                    </div>
+                    <p class="text-base text-yellow-700 mb-4 italic">Imperial Stout - 9.0% ABV</p>
+                    <p class="text-gray-300 mb-6">Tostada en calderos de obsidiana. Profunda y **oscura**, con notas intensas de **cacao, café y misterio**. Un hechizo denso, ideal para las noches de invierno.</p>
+                    <div class="text-left">
+                        <span class="inline-block bg-yellow-700 text-mystic-dark text-sm font-semibold px-4 py-1 rounded-full">Cuerpo: Poderoso</span>
+                    </div>
+                </div>
+
+                <!-- Cerveza 3: Gema Astral (Pilsner) -->
+                <div class="bg-mystic-dark p-6 rounded-xl border-t-4 border-blue-400 beer-card">
+                     <!-- Imagen/Placeholder 3 (Pilsner) -->
+                    <img src="https://placehold.co/400x400/60a5fa/1a1a2e?text=Gema+Astral" 
+                         alt="Etiqueta Gema Astral (Pilsner)" 
+                         class="beer-image rounded-lg mb-6 shadow-md shadow-blue-400/50">
+
+                    <div class="flex justify-start items-center mb-4">
+                        <span class="text-4xl text-blue-400 mr-3">💎</span>
+                        <h4 class="text-3xl font-bold cinzel-font text-white">Gema Astral</h4>
+                    </div>
+                    <p class="text-base text-blue-400 mb-4 italic">Pilsner Clara - 5.0% ABV</p>
+                    <p class="text-gray-300 mb-6">La luz pura de la cebada. Un encantamiento **refrescante** y limpio para el día a día. Crujiente, con un final floral y suave como la brisa estelar.</p>
+                    <div class="text-left">
+                        <span class="inline-block bg-blue-400 text-mystic-dark text-sm font-semibold px-4 py-1 rounded-full">Sabor: Refrescante</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Secundario -->
+            <div class="text-center mt-16">
+                 <button class="py-3 px-8 text-xl font-semibold bg-gray-700 text-amber-300 rounded-full hover:bg-gray-600 transition duration-300 focus:outline-none focus:ring-4 focus:ring-amber-500 focus:ring-opacity-50">
+                    Ver Carta Completa de Conjuros
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Sección Contacto/Ubicación - El Círculo Mágico -->
+    <section id="contacto" class="py-20 md:py-32 container mx-auto px-6 text-center">
+        <h3 class="text-4xl md:text-5xl font-bold cinzel-font text-amber-300 mb-4">Únete al Círculo Mágico</h3>
+        <p class="text-lg text-gray-400 max-w-3xl mx-auto mb-10">Encuentra dónde liberar la magia o contáctanos para alianzas. Estamos listos para recibir tu invocación.</p>
+
+        <div class="max-w-xl mx-auto p-8 rounded-xl bg-gray-800/70 border border-gray-700">
+            <form action="#" class="space-y-6">
+                <div>
+                    <input type="text" placeholder="Tu Nombre de Hechicero" class="w-full p-3 rounded-lg bg-gray-900 border border-gray-700 text-white focus:ring-amber-500 focus:border-amber-500" required>
+                </div>
+                <div>
+                    <input type="email" placeholder="Tu Correo Astral" class="w-full p-3 rounded-lg bg-gray-900 border border-gray-700 text-white focus:ring-amber-500 focus:border-amber-500" required>
+                </div>
+                <div>
+                    <textarea placeholder="Escribe tu Petición (Mensaje)" rows="4" class="w-full p-3 rounded-lg bg-gray-900 border border-gray-700 text-white focus:ring-amber-500 focus:border-amber-500" required></textarea>
+                </div>
+                <button type="submit" class="w-full py-3 text-lg font-semibold bg-amber-500 text-mystic-dark rounded-lg hover:bg-amber-400 transition duration-300 shadow-lg">
+                    Enviar Invocación
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Pie de Página (Footer) -->
+    <footer class="bg-black py-8">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+            <p>&copy; <span id="current-year"></span> Cervecería Grimorio. Todos los derechos reservados. | Diseñado por los Maestros Cerveceros.</p>
+            <div class="mt-4 space-x-4">
+                <a href="#" class="hover:text-amber-300 transition duration-300">Instagram</a>
+                <a href="#" class="hover:text-amber-300 transition duration-300">Facebook</a>
+                <a href="#" class="hover:text-amber-300 transition duration-300">Aviso Legal</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript para Interacciones (Menú Móvil y Año) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Actualizar el año en el footer
+            document.getElementById('current-year').textContent = new Date().getFullYear();
+
+            // Lógica para el menú móvil
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const closeMenuButton = document.getElementById('close-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.remove('hidden');
+            });
+
+            closeMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+            
+            // Cerrar menú al hacer click en un enlace
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Lógica para suavizar el scroll en los enlaces ancla
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        // Offset para compensar el header fijo
+                        const headerOffset = document.querySelector('header').offsetHeight; 
+                        const elementPosition = targetElement.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                        window.scrollTo({
+                            top: offsetPosition,
+                            behavior: "smooth"
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
 
