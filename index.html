@@ -4,30 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grimorio - Donde la Cerveza se Convierte en Hechicería</title>
-    <!-- Configuración y Carga de Tailwind CSS con colores customizados -->
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        // Colores de la Marca Grimorio
-                        'brand-dark': '#222831',         // RGB: 34, 40, 49 (Fondo principal)
-                        'brand-secondary-dark': '#393E46', // RGB: 57, 62, 70 (Fondo de tarjetas y elementos)
-                        'brand-accent': '#85C88A',       // RGB: 133, 200, 138 (Acento principal, CTA, Títulos)
-                        'brand-light': '#EEEEEE',        // RGB: 238, 238, 238 (Texto principal)
-                        
-                        // Paleta de Cervezas (Acentos Secundarios que reflejan el estilo)
-                        'beer-amber': '#C63A3A',    // Rojo Intenso para Runa de Fuego
-                        // Nuevo color para Elixir del Nigromante, basado en la imagen adjunta
-                        'beer-stout': '#6E6E6E',    // Gris Oscuro para Nigromante (Actualizado)
-                        'beer-golden': '#F0F046',   // Amarillo brillante para Grial Dorado
-                        'beer-witbier': '#F09E46',  // Naranja ámbar para Poción Mística
+                        'brand-dark': '#222831',
+                        'brand-secondary-dark': '#393E46',
+                        'brand-accent': '#85C88A',
+                        'brand-light': '#EEEEEE',
+                        'beer-amber': '#C63A3A',
+                        'beer-stout': '#616161',
+                        'beer-golden': '#F0F046',
+                        'beer-witbier': '#F09E46',
                     },
                     fontFamily: {
                         'inter': ['Inter', 'sans-serif'],
                         'cinzel': ['Cinzel', 'serif'],
-                        // Define una familia para la fuente customizada
                         'demon': ['Demon Latter', 'Cinzel', 'serif'],
                     }
                 }
@@ -35,62 +30,14 @@
         }
     </script>
     <style>
-        /* ===================================================================
-        INSTRUCCIONES PARA FUENTE DEMON LATTER:
-        
-        Dado que "Demon Latter" es una fuente especializada, debes subir los 
-        archivos de la fuente (.woff, .ttf, etc.) a tu servidor y luego 
-        descomentar y editar el bloque @font-face a continuación.
-        
-        Una vez configurada, puedes usarla en el HTML con la clase: font-demon
-        ===================================================================
-        */
-        /* @font-face {
-            font-family: 'Demon Latter';
-            src: url('ruta/a/demon_latter.woff2') format('woff2'),
-                 url('ruta/a/demon_latter.woff') format('woff');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
-        */
-
-        /* Fuentes Google: Cinzel (para títulos) e Inter (para cuerpo) */
         @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;700&family=Inter:wght@300;500;700&display=swap');
         
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        /* Clase customizada para el tipo de letra místico (ahora cargando 500) */
-        .cinzel-font {
-            font-family: 'Cinzel', serif;
-            font-weight: 500; /* Cinzel Medium por defecto en títulos principales */
-        }
-        
-        /* Aseguramos que el logo del header use un peso fuerte para destacarse */
-        .logo-font {
-            font-family: 'Cinzel', serif;
-            font-weight: 700;
-        }
-
-        /* Sombra de Brillo Usando el Color de Acento */
-        .shadow-accent-glow {
-            box-shadow: 0 0 15px rgba(133, 200, 138, 0.7); /* Usando #85C88A */
-        }
-        
-        /* Efecto de Hover en Tarjetas */
-        .beer-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .beer-card:hover {
-            transform: translateY(-8px);
-            /* Sombra sutil con el acento de la marca */
-            box-shadow: 0 10px 20px rgba(133, 200, 138, 0.2); 
-        }
-
-        /* Efecto de fondo sutil para la sección Hero */
+        body { font-family: 'Inter', sans-serif; }
+        .cinzel-font { font-family: 'Cinzel', serif; font-weight: 500; }
+        .logo-font { font-family: 'Cinzel', serif; font-weight: 700; }
+        .shadow-accent-glow { box-shadow: 0 0 15px rgba(133, 200, 138, 0.7); }
+        .beer-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .beer-card:hover { transform: translateY(-8px); box-shadow: 0 10px 20px rgba(133, 200, 138, 0.2); }
         #hero-section {
             background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), 
                               url('https://placehold.co/1920x1080/000/FFF?text=Fondo+M%C3%ADstico');
@@ -98,19 +45,13 @@
             background-position: center;
         }
 
-        /* CLASES PARA EL CARRUSEL: OCULTAR SCROLLBAR */
-        .scrollbar-hide::-webkit-scrollbar {
-            display: none; /* Chrome, Safari and Opera */
-        }
-        .scrollbar-hide {
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
-        }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body class="bg-brand-dark text-brand-light">
 
-    <!-- Sección de Cabecera y Navegación --><header class="sticky top-0 z-50 bg-brand-dark bg-opacity-95 backdrop-blur-sm shadow-lg">
+    <header class="sticky top-0 z-50 bg-brand-dark bg-opacity-95 backdrop-blur-sm shadow-lg">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <h1 class="text-3xl font-bold text-brand-accent logo-font">GRIMORIO</h1>
             <nav class="hidden md:flex space-x-8 text-lg font-medium">
@@ -124,7 +65,7 @@
         </div>
     </header>
 
-    <!-- Menú Móvil (Oculto por defecto) --><div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-brand-dark z-40 flex flex-col items-center justify-center space-y-8 text-2xl">
+    <div id="mobile-menu" class="hidden md:hidden fixed inset-0 bg-brand-dark z-40 flex flex-col items-center justify-center space-y-8 text-2xl">
         <button id="close-menu-button" class="absolute top-6 right-6 focus:outline-none">
             <svg class="w-8 h-8 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
         </button>
@@ -133,7 +74,7 @@
         <a href="#contacto" class="hover:text-brand-accent transition duration-300" onclick="document.getElementById('mobile-menu').classList.add('hidden')">Contáctanos</a>
     </div>
 
-    <!-- 1. Sección Héroe (Hero) - La Invocación --><section id="hero-section" class="relative flex items-center justify-center h-screen text-center">
+    <section id="hero-section" class="relative flex items-center justify-center h-screen text-center">
         <div class="bg-black bg-opacity-30 p-10 md:p-16 rounded-xl max-w-4xl mx-auto shadow-2xl shadow-brand-accent/50">
             <h2 class="text-6xl md:text-8xl font-bold cinzel-font text-brand-accent mb-4 tracking-wider animate-pulse">GRIMORIO</h2>
             <p class="text-xl md:text-3xl text-brand-light mb-10 italic">"Donde la cerveza se convierte en hechicería."</p>
@@ -143,24 +84,24 @@
         </div>
     </section>
 
-    <!-- 2. Sección Manifiesto - El Arte de la Alquimia --><section id="manifiesto" class="py-20 md:py-32 container mx-auto px-6">
+    <section id="manifiesto" class="py-20 md:py-32 container mx-auto px-6">
         <div class="text-center mb-16">
             <h3 class="text-4xl md:text-5xl font-bold cinzel-font text-brand-accent mb-4">El Arte de la Alquimia Cervecera</h3>
-            <p class="text-lg text-brand-light max-w-3xl mx-auto">No fermentamos, **invocamos**. Cada lote es un conjuro preciso, usando ingredientes ancestrales y rituales modernos para crear elixires que trascienden el sabor.</p>
+            <p class="text-lg text-brand-light max-w-3xl mx-auto">No fermentamos, <strong>invocamos</strong>. Cada lote es un conjuro preciso, usando ingredientes ancestrales y rituales modernos para crear elixires que trascienden el sabor.</p>
         </div>
 
         <div class="grid md:grid-cols-3 gap-10 text-center">
-            <!-- Pilar 1: Ingredientes Ancestrales --><div class="p-6 rounded-lg bg-brand-secondary-dark/50 border border-brand-secondary-dark beer-card">
+            <div class="p-6 rounded-lg bg-brand-secondary-dark/50 border border-brand-secondary-dark beer-card">
                 <span class="text-5xl text-brand-accent mb-4 block">🔮</span>
                 <h4 class="text-2xl font-semibold cinzel-font mb-3">Pócimas Puras</h4>
                 <p class="text-brand-light">Seleccionamos lúpulos, maltas y levaduras como si fueran componentes mágicos, buscando la energía más alta para nuestras creaciones.</p>
             </div>
-            <!-- Pilar 2: El Ritual de la Cerveza --><div class="p-6 rounded-lg bg-brand-secondary-dark/50 border border-brand-secondary-dark beer-card">
+            <div class="p-6 rounded-lg bg-brand-secondary-dark/50 border border-brand-secondary-dark beer-card">
                 <span class="text-5xl text-brand-accent mb-4 block">🔥</span>
                 <h4 class="text-2xl font-semibold cinzel-font mb-3">Fuego y Fermentación</h4>
                 <p class="text-brand-light">Nuestros maestros cerveceros son alquimistas, vigilando la transformación con paciencia y precisión, asegurando el balance perfecto.</p>
             </div>
-            <!-- Pilar 3: La Experiencia Mágica --><div class="p-6 rounded-lg bg-brand-secondary-dark/50 border border-brand-secondary-dark beer-card">
+            <div class="p-6 rounded-lg bg-brand-secondary-dark/50 border border-brand-secondary-dark beer-card">
                 <span class="text-5xl text-brand-accent mb-4 block">✨</span>
                 <h4 class="text-2xl font-semibold cinzel-font mb-3">El Despertar</h4>
                 <p class="text-brand-light">Beber Grimorio es un acto de magia. Cada sorbo es un portal a una nueva experiencia sensorial, cargada de carácter y misterio.</p>
@@ -168,240 +109,151 @@
         </div>
     </section>
 
-    <!-- 3. Sección Elixires - Nuestros Conjuros Principales (CARRUSEL) -->
     <section id="elixires" class="py-20 md:py-32 bg-brand-secondary-dark relative">
-        <!-- Contenedor del Título Centrado -->
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
+        <div class="container mx-auto">
+            <div class="text-center mb-16 px-6">
                 <h3 class="text-4xl md:text-5xl font-bold cinzel-font text-brand-accent mb-4">El Catálogo de Elixires</h3>
                 <p class="text-lg text-brand-light max-w-4xl mx-auto">Desliza para ver los cuatro pilares de nuestra magia. Cada cerveza es un encantamiento único, listo para ser liberado.</p>
             </div>
         </div>
-        
-        <!-- Contenedor del Carrusel (Ahora ocupa el ancho completo) -->
+
         <div class="relative w-full">
-            <!-- Carrusel Horizontal: Añadimos flex, overflow-x-scroll, snap-x y ocultamos el scrollbar -->
-            <div id="elixires-carousel" class="flex space-x-6 overflow-x-scroll snap-x snap-mandatory scrollbar-hide pb-8 px-6 sm:px-12 md:px-20 lg:px-32">
+            <div id="elixires-carousel" class="flex space-x-6 overflow-x-scroll snap-x snap-mandatory scrollbar-hide py-8 px-6 md:px-12">
                 
-                <!-- Cerveza 1: Runa de Fuego (Amber Ale) - ORIGINAL -->
-                <div class="flex-shrink-0 w-full sm:w-80 md:w-96 snap-center bg-brand-dark p-6 rounded-xl border-t-4 border-beer-amber beer-card" id="card-1">
+                <div id="original-card-1" class="flex-shrink-0 w-full sm:w-80 md:w-96 snap-center bg-brand-dark p-6 rounded-xl border-t-4 border-beer-amber beer-card">
                     <img src="https://placehold.co/400x400/C63A3A/222831" 
                          alt="Etiqueta Runa de Fuego (Amber Ale)" 
-                         onerror="this.onerror=null; this.src='https://placehold.co/400x400/C63A3A/222831'"
-                         class="beer-image rounded-lg mb-6 shadow-md shadow-beer-amber/50 w-full h-auto object-cover">
+                         class="beer-image rounded-lg mb-6 shadow-md shadow-beer-amber/50 w-full h-auto object-cover aspect-square">
 
                     <div class="flex justify-start items-center mb-4">
                         <span class="text-4xl text-beer-amber mr-3">🔥</span>
                         <h4 class="text-xl font-bold cinzel-font text-brand-light">Runa de Fuego</h4>
                     </div>
-                    <p class="text-base text-beer-amber mb-4 italic">Amber Ale</p>
-                    <p class="text-brand-light mb-4">El espíritu de la hoguera. Carácter **maltoso**, con notas a caramelo y un final limpio y tostado. Calidez y equilibrio en cada trago.</p>
+                    <p class="text-base text-beer-amber mb-4 italic">Amber Ale - 5.5% ABV</p>
+                    <p class="text-brand-light mb-4">El espíritu de la hoguera. Carácter <strong>maltoso</strong>, con notas a caramelo y un final limpio y tostado. Calidez y equilibrio en cada trago.</p>
                     
-                    <!-- Sección de Estadísticas (ABV, IBU, SRM) -->
-                    <div class="space-y-3 pt-2">
-                        <!-- ABV -->
-                        <div class="text-xs text-brand-light">
-                            <div class="flex justify-between mb-1">
-                                <span><span class="font-bold">ABV:</span> 5.5%</span>
-                            </div>
-                            <div class="w-full bg-brand-secondary-dark rounded-full h-2.5">
-                                <div class="h-2.5 rounded-full bg-beer-amber" style="width: 55%"></div>
-                            </div>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex flex-col">
+                            <span class="text-sm font-semibold text-brand-light mb-1">ABV: 5.5%</span>
+                            <div class="h-2 bg-brand-secondary-dark rounded-full"><div class="h-full rounded-full bg-beer-amber" style="width: 55%;"></div></div>
                         </div>
-                        <!-- IBU -->
-                        <div class="text-xs text-brand-light">
-                            <div class="flex justify-between mb-1">
-                                <span><span class="font-bold">IBU:</span> 30</span>
-                            </div>
-                            <div class="w-full bg-brand-secondary-dark rounded-full h-2.5">
-                                <div class="h-2.5 rounded-full bg-beer-amber" style="width: 30%"></div>
-                            </div>
+                        <div class="flex flex-col">
+                            <span class="text-sm font-semibold text-brand-light mb-1">IBU: 25</span>
+                            <div class="h-2 bg-brand-secondary-dark rounded-full"><div class="h-full rounded-full bg-beer-amber" style="width: 25%;"></div></div>
                         </div>
-                        <!-- SRM -->
-                        <div class="text-xs text-brand-light">
-                            <div class="flex justify-between mb-1">
-                                <span><span class="font-bold">SRM:</span> 12</span>
-                            </div>
-                            <div class="w-full bg-brand-secondary-dark rounded-full h-2.5">
-                                <div class="h-2.5 rounded-full bg-beer-amber" style="width: 25%"></div>
-                            </div>
+                        <div class="flex flex-col">
+                            <span class="text-sm font-semibold text-brand-light mb-1">SRM: 14</span>
+                            <div class="h-2 bg-brand-secondary-dark rounded-full"><div class="h-full rounded-full bg-beer-amber" style="width: 30%;"></div></div>
                         </div>
                     </div>
-                    <!-- Fin de Sección de Estadísticas -->
-
-                    <div class="text-left mt-4">
+                    <div class="mt-4 text-left">
                         <span class="inline-block bg-beer-amber text-brand-dark text-sm font-semibold px-4 py-1 rounded-full">Sabor: Maltoso</span>
                     </div>
                 </div>
 
-                <!-- Cerveza 2: Elixir del Nigromante (Oatmeal Stout) - ORIGINAL -->
-                <div class="flex-shrink-0 w-full sm:w-80 md:w-96 snap-center bg-brand-dark p-6 rounded-xl border-t-4 border-beer-stout beer-card" id="card-2">
-                     <img src="https://placehold.co/400x400/6E6E6E/222831" 
+                <div id="original-card-2" class="flex-shrink-0 w-full sm:w-80 md:w-96 snap-center bg-brand-dark p-6 rounded-xl border-t-4 border-beer-stout beer-card">
+                    <img src="https://placehold.co/400x400/616161/222831" 
                          alt="Etiqueta Elixir del Nigromante (Oatmeal Stout)" 
-                         onerror="this.onerror=null; this.src='https://placehold.co/400x400/6E6E6E/222831'"
-                         class="beer-image rounded-lg mb-6 shadow-md shadow-beer-stout/50 w-full h-auto object-cover">
+                         class="beer-image rounded-lg mb-6 shadow-md shadow-beer-stout/50 w-full h-auto object-cover aspect-square">
 
                     <div class="flex justify-start items-center mb-4">
                         <span class="text-4xl text-beer-stout mr-3">💀</span>
                         <h4 class="text-xl font-bold cinzel-font text-brand-light">Elixir del Nigromante</h4>
                     </div>
-                    <p class="text-base text-beer-stout mb-4 italic">Oatmeal Stout</p>
-                    <p class="text-brand-light mb-4">Un conjuro oscuro y **cremoso**. Sabor intenso a **chocolate amargo** y café, suavizado por la avena. Profundo y reconfortante.</p>
+                    <p class="text-base text-beer-stout mb-4 italic">Oatmeal Stout - 7.0% ABV</p>
+                    <p class="text-brand-light mb-4">Un conjuro oscuro y <strong>cremoso</strong>. Sabor intenso a <strong>chocolate amargo</strong> y café, suavizado por la avena. Profundo y reconfortante.</p>
                     
-                    <!-- Sección de Estadísticas (ABV, IBU, SRM) -->
-                    <div class="space-y-3 pt-2">
-                        <!-- ABV -->
-                        <div class="text-xs text-brand-light">
-                            <div class="flex justify-between mb-1">
-                                <span><span class="font-bold">ABV:</span> 7.0%</span>
-                            </div>
-                            <div class="w-full bg-brand-secondary-dark rounded-full h-2.5">
-                                <div class="h-2.5 rounded-full bg-beer-stout" style="width: 70%"></div>
-                            </div>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex flex-col">
+                            <span class="text-sm font-semibold text-brand-light mb-1">ABV: 7.0%</span>
+                            <div class="h-2 bg-brand-secondary-dark rounded-full"><div class="h-full rounded-full bg-beer-stout" style="width: 70%;"></div></div>
                         </div>
-                        <!-- IBU -->
-                        <div class="text-xs text-brand-light">
-                            <div class="flex justify-between mb-1">
-                                <span><span class="font-bold">IBU:</span> 35</span>
-                            </div>
-                            <div class="w-full bg-brand-secondary-dark rounded-full h-2.5">
-                                <div class="h-2.5 rounded-full bg-beer-stout" style="width: 35%"></div>
-                            </div>
+                        <div class="flex flex-col">
+                            <span class="text-sm font-semibold text-brand-light mb-1">IBU: 40</span>
+                            <div class="h-2 bg-brand-secondary-dark rounded-full"><div class="h-full rounded-full bg-beer-stout" style="width: 40%;"></div></div>
                         </div>
-                        <!-- SRM -->
-                        <div class="text-xs text-brand-light">
-                            <div class="flex justify-between mb-1">
-                                <span><span class="font-bold">SRM:</span> 40</span>
-                            </div>
-                            <div class="w-full bg-brand-secondary-dark rounded-full h-2.5">
-                                <div class="h-2.5 rounded-full bg-beer-stout" style="width: 80%"></div>
-                            </div>
+                        <div class="flex flex-col">
+                            <span class="text-sm font-semibold text-brand-light mb-1">SRM: 40</span>
+                            <div class="h-2 bg-brand-secondary-dark rounded-full"><div class="h-full rounded-full bg-beer-stout" style="width: 80%;"></div></div>
                         </div>
                     </div>
-                    <!-- Fin de Sección de Estadísticas -->
-
-                    <div class="text-left mt-4">
+                    <div class="mt-4 text-left">
                         <span class="inline-block bg-beer-stout text-brand-dark text-sm font-semibold px-4 py-1 rounded-full">Textura: Sedosa</span>
                     </div>
                 </div>
 
-                <!-- Cerveza 3: Grial Dorado (Golden Ale) - ORIGINAL -->
-                <div class="flex-shrink-0 w-full sm:w-80 md:w-96 snap-center bg-brand-dark p-6 rounded-xl border-t-4 border-beer-golden beer-card" id="card-3">
-                     <img src="https://placehold.co/400x400/F0F046/222831" 
+                <div id="original-card-3" class="flex-shrink-0 w-full sm:w-80 md:w-96 snap-center bg-brand-dark p-6 rounded-xl border-t-4 border-beer-golden beer-card">
+                    <img src="https://placehold.co/400x400/F0F046/222831" 
                          alt="Etiqueta Grial Dorado (Golden Ale)" 
-                         onerror="this.onerror=null; this.src='https://placehold.co/400x400/F0F046/222831'"
-                         class="beer-image rounded-lg mb-6 shadow-md shadow-beer-golden/50 w-full h-auto object-cover">
+                         class="beer-image rounded-lg mb-6 shadow-md shadow-beer-golden/50 w-full h-auto object-cover aspect-square">
 
                     <div class="flex justify-start items-center mb-4">
                         <span class="text-4xl text-beer-golden mr-3">👑</span>
                         <h4 class="text-xl font-bold cinzel-font text-brand-light">Grial Dorado</h4>
                     </div>
-                    <p class="text-base text-beer-golden mb-4 italic">Golden Ale</p>
-                    <p class="text-brand-light mb-4">La recompensa de la búsqueda. **Refrescante**, ligera y con un toque **floral** y afrutado. La pureza y el brillo de una joya.</p>
-
-                    <!-- Sección de Estadísticas (ABV, IBU, SRM) -->
-                    <div class="space-y-3 pt-2">
-                        <!-- ABV -->
-                        <div class="text-xs text-brand-light">
-                            <div class="flex justify-between mb-1">
-                                <span><span class="font-bold">ABV:</span> 4.8%</span>
-                            </div>
-                            <div class="w-full bg-brand-secondary-dark rounded-full h-2.5">
-                                <div class="h-2.5 rounded-full bg-beer-golden" style="width: 48%"></div>
-                            </div>
+                    <p class="text-base text-beer-golden mb-4 italic">Golden Ale - 4.8% ABV</p>
+                    <p class="text-brand-light mb-4">La recompensa de la búsqueda. <strong>Refrescante</strong>, ligera y con un toque <strong>floral</strong> y afrutado. La pureza y el brillo de una joya.</p>
+                    
+                    <div class="space-y-3 mb-6">
+                        <div class="flex flex-col">
+                            <span class="text-sm font-semibold text-brand-light mb-1">ABV: 4.8%</span>
+                            <div class="h-2 bg-brand-secondary-dark rounded-full"><div class="h-full rounded-full bg-beer-golden" style="width: 48%;"></div></div>
                         </div>
-                        <!-- IBU -->
-                        <div class="text-xs text-brand-light">
-                            <div class="flex justify-between mb-1">
-                                <span><span class="font-bold">IBU:</span> 18</span>
-                            </div>
-                            <div class="w-full bg-brand-secondary-dark rounded-full h-2.5">
-                                <div class="h-2.5 rounded-full bg-beer-golden" style="width: 18%"></div>
-                            </div>
+                        <div class="flex flex-col">
+                            <span class="text-sm font-semibold text-brand-light mb-1">IBU: 20</span>
+                            <div class="h-2 bg-brand-secondary-dark rounded-full"><div class="h-full rounded-full bg-beer-golden" style="width: 20%;"></div></div>
                         </div>
-                        <!-- SRM -->
-                        <div class="text-xs text-brand-light">
-                            <div class="flex justify-between mb-1">
-                                <span><span class="font-bold">SRM:</span> 5</span>
-                            </div>
-                            <div class="w-full bg-brand-secondary-dark rounded-full h-2.5">
-                                <div class="h-2.5 rounded-full bg-beer-golden" style="width: 10%"></div>
-                            </div>
+                        <div class="flex flex-col">
+                            <span class="text-sm font-semibold text-brand-light mb-1">SRM: 4</span>
+                            <div class="h-2 bg-brand-secondary-dark rounded-full"><div class="h-full rounded-full bg-beer-golden" style="width: 8%;"></div></div>
                         </div>
                     </div>
-                    <!-- Fin de Sección de Estadísticas -->
-                    
-                    <div class="text-left mt-4">
+                    <div class="mt-4 text-left">
                         <span class="inline-block bg-beer-golden text-brand-dark text-sm font-semibold px-4 py-1 rounded-full">Bebibilidad: Alta</span>
                     </div>
                 </div>
 
-                 <!-- Cerveza 4: Poción Mística (Witbier) - ORIGINAL -->
-                 <div class="flex-shrink-0 w-full sm:w-80 md:w-96 snap-center bg-brand-dark p-6 rounded-xl border-t-4 border-beer-witbier beer-card" id="card-4">
-                     <img src="https://placehold.co/400x400/F09E46/222831" 
+                <div id="original-card-4" class="flex-shrink-0 w-full sm:w-80 md:w-96 snap-center bg-brand-dark p-6 rounded-xl border-t-4 border-beer-witbier beer-card">
+                    <img src="https://placehold.co/400x400/F09E46/222831" 
                          alt="Etiqueta Poción Mística (Witbier)" 
-                         onerror="this.onerror=null; this.src='https://placehold.co/400x400/F09E46/222831'"
-                         class="beer-image rounded-lg mb-6 shadow-md shadow-beer-witbier/50 w-full h-auto object-cover">
+                         class="beer-image rounded-lg mb-6 shadow-md shadow-beer-witbier/50 w-full h-auto object-cover aspect-square">
 
                     <div class="flex justify-start items-center mb-4">
                         <span class="text-4xl text-beer-witbier mr-3">🧪</span>
                         <h4 class="text-xl font-bold cinzel-font text-brand-light">Poción Mística</h4>
                     </div>
-                    <p class="text-base text-beer-witbier mb-4 italic">Witbier (Cerveza de Trigo)</p>
-                    <p class="text-brand-light mb-4">El hechizo de la primavera. **Especiada** y turbia, con notas a piel de naranja y semillas de cilantro. Ligera, cítrica y revitalizante.</p>
+                    <p class="text-base text-beer-witbier mb-4 italic">Witbier (Cerveza de Trigo) - 4.5% ABV</p>
+                    <p class="text-brand-light mb-4">El hechizo de la primavera. <strong>Especiada</strong> y turbia, con notas a piel de naranja y semillas de cilantro. Ligera, cítrica y revitalizante.</p>
                     
-                    <!-- Sección de Estadísticas (ABV, IBU, SRM) -->
-                    <div class="space-y-3 pt-2">
-                        <!-- ABV -->
-                        <div class="text-xs text-brand-light">
-                            <div class="flex justify-between mb-1">
-                                <span><span class="font-bold">ABV:</span> 4.5%</span>
-                            </div>
-                            <div class="w-full bg-brand-secondary-dark rounded-full h-2.5">
-                                <div class="h-2.5 rounded-full bg-beer-witbier" style="width: 45%"></div>
-                            </div>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex flex-col">
+                            <span class="text-sm font-semibold text-brand-light mb-1">ABV: 4.5%</span>
+                            <div class="h-2 bg-brand-secondary-dark rounded-full"><div class="h-full rounded-full bg-beer-witbier" style="width: 45%;"></div></div>
                         </div>
-                        <!-- IBU -->
-                        <div class="text-xs text-brand-light">
-                            <div class="flex justify-between mb-1">
-                                <span><span class="font-bold">IBU:</span> 16</span>
-                            </div>
-                            <div class="w-full bg-brand-secondary-dark rounded-full h-2.5">
-                                <div class="h-2.5 rounded-full bg-beer-witbier" style="width: 16%"></div>
-                            </div>
+                        <div class="flex flex-col">
+                            <span class="text-sm font-semibold text-brand-light mb-1">IBU: 15</span>
+                            <div class="h-2 bg-brand-secondary-dark rounded-full"><div class="h-full rounded-full bg-beer-witbier" style="width: 15%;"></div></div>
                         </div>
-                        <!-- SRM -->
-                        <div class="text-xs text-brand-light">
-                            <div class="flex justify-between mb-1">
-                                <span><span class="font-bold">SRM:</span> 4</span>
-                            </div>
-                            <div class="w-full bg-brand-secondary-dark rounded-full h-2.5">
-                                <div class="h-2.5 rounded-full bg-beer-witbier" style="width: 8%"></div>
-                            </div>
+                        <div class="flex flex-col">
+                            <span class="text-sm font-semibold text-brand-light mb-1">SRM: 3</span>
+                            <div class="h-2 bg-brand-secondary-dark rounded-full"><div class="h-full rounded-full bg-beer-witbier" style="width: 6%;"></div></div>
                         </div>
                     </div>
-                    <!-- Fin de Sección de Estadísticas -->
-
-                    <div class="text-left mt-4">
+                    <div class="mt-4 text-left">
                         <span class="inline-block bg-beer-witbier text-brand-dark text-sm font-semibold px-4 py-1 rounded-full">Aroma: Especiado</span>
                     </div>
                 </div>
 
             </div>
 
-            <!-- Botón de Navegación Izquierda (Posición Ajustada) -->
-            <button id="prev-elixir" class="hidden md:block absolute top-1/2 left-0 transform -translate-y-1/2 ml-4 md:ml-12 p-3 bg-brand-secondary-dark rounded-full text-brand-accent hover:bg-brand-secondary-dark/80 transition duration-300 shadow-lg z-30">
-                <!-- Icono de flecha izquierda (SVG) --><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+            <button id="prev-elixir" class="hidden md:block absolute top-1/2 left-0 transform -translate-y-1/2 -ml-2 p-3 bg-brand-secondary-dark rounded-full text-brand-accent hover:bg-brand-secondary-dark/80 transition duration-300 shadow-lg z-30 ml-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
             </button>
-
-            <!-- Botón de Navegación Derecha (Posición Ajustada) -->
-            <button id="next-elixir" class="hidden md:block absolute top-1/2 right-0 transform -translate-y-1/2 mr-4 md:mr-12 p-3 bg-brand-secondary-dark rounded-full text-brand-accent hover:bg-brand-secondary-dark/80 transition duration-300 shadow-lg z-30">
-                <!-- Icono de flecha derecha (SVG) --><svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            <button id="next-elixir" class="hidden md:block absolute top-1/2 right-0 transform -translate-y-1/2 -mr-2 p-3 bg-brand-secondary-dark rounded-full text-brand-accent hover:bg-brand-secondary-dark/80 transition duration-300 shadow-lg z-30 mr-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
             </button>
         </div>
-
-
-        <!-- CTA Secundario -->
+        
         <div class="text-center mt-16 container mx-auto px-6">
              <button class="py-3 px-8 text-xl font-semibold bg-brand-secondary-dark text-brand-accent rounded-full hover:bg-brand-secondary-dark/80 transition duration-300 focus:outline-none focus:ring-4 focus:ring-brand-accent focus:ring-opacity-50">
                 Ver Carta Completa de Conjuros
@@ -409,7 +261,7 @@
         </div>
     </section>
 
-    <!-- 4. Sección Contacto/Ubicación - El Círculo Mágico --><section id="contacto" class="py-20 md:py-32 container mx-auto px-6 text-center">
+    <section id="contacto" class="py-20 md:py-32 container mx-auto px-6 text-center">
         <h3 class="text-4xl md:text-5xl font-bold cinzel-font text-brand-accent mb-4">Únete al Círculo Mágico</h3>
         <p class="text-lg text-brand-light max-w-3xl mx-auto mb-10">Encuentra dónde liberar la magia o contáctanos para alianzas. Estamos listos para recibir tu invocación.</p>
 
@@ -431,7 +283,7 @@
         </div>
     </section>
 
-    <!-- Pie de Página (Footer) --><footer class="bg-black py-8">
+    <footer class="bg-black py-8">
         <div class="container mx-auto px-6 text-center text-gray-500">
             <p>&copy; <span id="current-year"></span> Cervecería Grimorio. Todos los derechos reservados. | Diseñado por los Maestros Cerveceros.</p>
             <div class="mt-4 space-x-4">
@@ -442,136 +294,76 @@
         </div>
     </footer>
 
-    <!-- JavaScript para Interacciones (Menú Móvil, Año y Carrusel) --><script>
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Actualizar el año en el footer
             document.getElementById('current-year').textContent = new Date().getFullYear();
 
-            // Lógica para el menú móvil
             const mobileMenuButton = document.getElementById('mobile-menu-button');
             const closeMenuButton = document.getElementById('close-menu-button');
             const mobileMenu = document.getElementById('mobile-menu');
 
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.remove('hidden');
-            });
-
-            closeMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
+            mobileMenuButton.addEventListener('click', () => { mobileMenu.classList.remove('hidden'); });
+            closeMenuButton.addEventListener('click', () => { mobileMenu.classList.add('hidden'); });
             
-            // Cerrar menú al hacer click en un enlace
             mobileMenu.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileMenu.classList.add('hidden');
-                });
+                link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); });
             });
 
-            // Lógica para suavizar el scroll en los enlaces ancla
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-
                     const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
 
                     if (targetElement) {
-                        // Offset para compensar el header fijo
                         const headerOffset = document.querySelector('header').offsetHeight; 
                         const elementPosition = targetElement.getBoundingClientRect().top;
                         const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: "smooth"
-                        });
+                        window.scrollTo({ top: offsetPosition, behavior: "smooth" });
                     }
                 });
             });
             
-            // ===========================================
-            // LÓGICA DEL CARRUSEL DE 4 ELEMENTOS CON LOOP SUAVE
-            // ===========================================
             const carousel = document.getElementById('elixires-carousel');
-            const originalCards = Array.from(carousel.querySelectorAll('.flex-shrink-0'));
-            const numOriginalCards = originalCards.length; // 4
+            const originalCards = Array.from(carousel.querySelectorAll('[id^="original-card-"]')); 
             const prevButton = document.getElementById('prev-elixir');
             const nextButton = document.getElementById('next-elixir');
-            let intervalId = null;
-            const scrollTime = 5000; // 5 segundos
 
-            
-            // Función para obtener la distancia de desplazamiento de UNA tarjeta (ancho + gap)
             const getScrollDistance = () => {
                 if (originalCards.length === 0) return 0;
-                // Forzar un recálculo de offsetWidth en caso de redimensionamiento
                 const cardWidth = originalCards[0].offsetWidth;
-                const gap = 24; // Tailwind space-x-6 (6 * 4px = 24px)
+                const gap = 24; 
                 return cardWidth + gap;
             };
-            
-            // 2. Función de desplazamiento manual
+
             const scrollCarousel = (direction) => {
                 const distance = getScrollDistance();
-                const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-                const currentScroll = carousel.scrollLeft;
                 
-                // Detiene y reinicia el auto-scroll al interactuar
-                resetAutoScroll(); 
-
                 if (direction === 'next') {
-                    // Si ya estamos cerca del final, salta SUAVEMENTE al inicio (0)
-                    if (currentScroll >= maxScroll - 5) { // 5px de margen de error
-                        carousel.scrollTo({ left: 0, behavior: 'smooth' });
+                    const currentScroll = carousel.scrollLeft;
+                    const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+
+                    if (Math.round(currentScroll) >= Math.round(maxScroll)) {
+                        carousel.scrollTo({ left: 0, behavior: 'smooth' }); 
                     } else {
-                        // Desplazamiento normal
                         carousel.scrollBy({ left: distance, behavior: 'smooth' });
                     }
                 } else if (direction === 'prev') {
-                    // Si ya estamos cerca del inicio, salta SUAVEMENTE al final (maxScroll)
-                    if (currentScroll <= 5) {
-                        carousel.scrollTo({ left: maxScroll, behavior: 'smooth' });
+                    const currentScroll = carousel.scrollLeft;
+
+                    if (Math.round(currentScroll) <= 10) { 
+                        carousel.scrollTo({ left: carousel.scrollWidth, behavior: 'smooth' }); 
                     } else {
-                        // Desplazamiento normal
                         carousel.scrollBy({ left: -distance, behavior: 'smooth' });
                     }
                 }
             };
 
-            // 3. Lógica del Auto-Scroll (Ajustada)
-            const autoScrollLogic = () => {
-                const distance = getScrollDistance();
-                const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-                const currentScroll = carousel.scrollLeft;
-
-                // Si ya estamos en la última tarjeta (con un margen), vamos al inicio de forma suave.
-                if (currentScroll >= maxScroll - 5) {
-                    carousel.scrollTo({ left: 0, behavior: 'smooth' });
-                } else {
-                    // Desplazamiento normal a la siguiente tarjeta.
-                    carousel.scrollBy({ left: distance, behavior: 'smooth' });
-                }
-            };
-
-            // 4. Iniciar y Resetear Auto-Scroll
-            const startAutoScroll = () => {
-                if (intervalId) clearInterval(intervalId);
-                intervalId = setInterval(autoScrollLogic, scrollTime);
-            };
-            
-            const resetAutoScroll = () => {
-                clearInterval(intervalId);
-                startAutoScroll();
-            };
-
-            // Asignar eventos a los botones
             if (prevButton && nextButton) {
                 prevButton.addEventListener('click', () => scrollCarousel('prev'));
                 nextButton.addEventListener('click', () => scrollCarousel('next'));
             }
-            
-            // Iniciar el auto-scroll al cargar
-            startAutoScroll();
         });
     </script>
 </body>
