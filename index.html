@@ -125,7 +125,7 @@
                             <span class="text-4xl text-beer-amber mr-3">🔥</span>
                             <h4 class="text-xl font-bold cinzel-font text-brand-light">Runa de Fuego</h4>
                         </div>
-                        <p class="text-base text-beer-amber mb-4 italic">Amber Ale - 5.5% ABV</p>
+                        <p class="text-base text-beer-amber mb-4 italic">Amber Ale</p>
                         <p class="text-brand-light mb-4">El espíritu de la hoguera. Carácter <strong>maltoso</strong>, con notas a caramelo y un final limpio y tostado. Calidez y equilibrio en cada trago.</p>
                         
                         <div class="space-y-3 mb-6">
@@ -159,7 +159,7 @@
                             <span class="text-4xl text-beer-stout mr-3">💀</span>
                             <h4 class="text-xl font-bold cinzel-font text-brand-light">Elixir del Nigromante</h4>
                         </div>
-                        <p class="text-base text-beer-stout mb-4 italic">Oatmeal Stout - 7.0% ABV</p>
+                        <p class="text-base text-beer-stout mb-4 italic">Oatmeal Stout</p>
                         <p class="text-brand-light mb-4">Un conjuro oscuro y <strong>cremoso</strong>. Sabor intenso a <strong>chocolate amargo</strong> y café, suavizado por la avena. Profundo y reconfortante.</p>
                         
                         <div class="space-y-3 mb-6">
@@ -193,7 +193,7 @@
                             <span class="text-4xl text-beer-golden mr-3">👑</span>
                             <h4 class="text-xl font-bold cinzel-font text-brand-light">Grial Dorado</h4>
                         </div>
-                        <p class="text-base text-beer-golden mb-4 italic">Golden Ale - 4.8% ABV</p>
+                        <p class="text-base text-beer-golden mb-4 italic">Golden Ale</p>
                         <p class="text-brand-light mb-4">La recompensa de la búsqueda. <strong>Refrescante</strong>, ligera y con un toque <strong>floral</strong> y afrutado. La pureza y el brillo de una joya.</p>
                         
                         <div class="space-y-3 mb-6">
@@ -227,7 +227,7 @@
                             <span class="text-4xl text-beer-witbier mr-3">🧪</span>
                             <h4 class="text-xl font-bold cinzel-font text-brand-light">Poción Mística</h4>
                         </div>
-                        <p class="text-base text-beer-witbier mb-4 italic">Witbier (Cerveza de Trigo) - 4.5% ABV</p>
+                        <p class="text-base text-beer-witbier mb-4 italic">Witbier (Cerveza de Trigo)</p>
                         <p class="text-brand-light mb-4">El hechizo de la primavera. <strong>Especiada</strong> y turbia, con notas a piel de naranja y semillas de cilantro. Ligera, cítrica y revitalizante.</p>
                         
                         <div class="space-y-3 mb-6">
@@ -253,10 +253,13 @@
                 
             </div>
 
-            <div class="text-center mt-16">
-                 <button class="py-3 px-8 text-xl font-semibold bg-brand-secondary-dark text-brand-accent rounded-full hover:bg-brand-secondary-dark/80 transition duration-300 focus:outline-none focus:ring-4 focus:ring-brand-accent focus:ring-opacity-50">
+            <div class="text-center mt-16 relative">
+                 <button id="full-carta-button" class="py-3 px-8 text-xl font-semibold bg-brand-secondary-dark text-brand-accent rounded-full hover:bg-brand-secondary-dark/80 transition duration-300 focus:outline-none focus:ring-4 focus:ring-brand-accent focus:ring-opacity-50">
                     Ver Carta Completa de Conjuros
                 </button>
+                <div id="proximamente-message" class="absolute top-full left-1/2 transform -translate-x-1/2 mt-4 px-4 py-2 bg-brand-accent text-brand-dark rounded-lg shadow-xl opacity-0 transition-opacity duration-500 pointer-events-none text-sm font-semibold">
+                    <span class="cinzel-font">Próximamente más elixires en el grimorio... La Magia se está gestando. 🧙‍♂️</span>
+                </div>
             </div>
         </div>
     </section>
@@ -323,6 +326,28 @@
                         window.scrollTo({ top: offsetPosition, behavior: "smooth" });
                     }
                 });
+            });
+
+            // Lógica para el mensaje "Próximamente"
+            const cartaButton = document.getElementById('full-carta-button');
+            const messageElement = document.getElementById('proximamente-message');
+            let timeoutId = null;
+
+            cartaButton.addEventListener('click', (e) => {
+                e.preventDefault();
+                
+                // Limpiar cualquier timeout anterior
+                if (timeoutId) clearTimeout(timeoutId);
+
+                // Mostrar el mensaje
+                messageElement.classList.remove('opacity-0', 'pointer-events-none');
+                messageElement.classList.add('opacity-100');
+
+                // Ocultar el mensaje después de 3 segundos
+                timeoutId = setTimeout(() => {
+                    messageElement.classList.remove('opacity-100');
+                    messageElement.classList.add('opacity-0', 'pointer-events-none');
+                }, 5000);
             });
         });
     </script>
